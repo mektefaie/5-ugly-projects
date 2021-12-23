@@ -6,14 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mahmoud Ektefaie">
-    <title>Plain JS Apps</title>
+    <title>Mini JS Apps</title>
+
+    <style>
+        table#expense {
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        table#expense,
+        table#expense tr,
+        table#expense td {
+            border: 1px solid #717171;
+        }
+    </style>
 </head>
 
 <body>
     <br>
     <h1>UGLY PROJECT CHALLENGE</h1>
     <ul>
-        <li>5 mini projects using only HTML and JS. No CSS whatsoever!</li>
+        <li>5 mini projects using HTML, JS and bare minimum CSS.</li>
     </ul>
 
     <hr>
@@ -32,8 +45,43 @@
     <br>
 
     <h2>2. Expense Tracker App</h2>
+    <form id="expense-details">
+        <label>Name: <input type="text" name="expense-name" id="expense-name" placeholder="Enter expense name"
+                required></label>
+        <br>
+        <br>
+        <label>Date: <input type="date" name="expense-date" id="expense-date" required></label>
+        <br>
+        <br>
+        <label>Amount: <input type="number" name="expense-amount" id="expense-amount" placeholder="$0.00"
+                required></label>
+        <br>
+        <br>
+        <button type="submit" onclick="handleExpense()">Submit Expense</button>
+    </form>
+    <br>
+    <table id="expense">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Date</td>
+                <td>Amount</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="expense-list">
+            <tr id="expense-item">
+                <td id="empty-list" colspan="4">
+                    No expenses reported yet!
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <script src="js/todo.js"></script>
+    <script src="js/expense-tracker.js"></script>
 </body>
 
 </html>

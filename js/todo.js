@@ -9,7 +9,7 @@ function handleSubmit(e) {
   let todo = document.getElementById('todoName')
   if (todo.value !== '') {
     addTodo(todo.value);
-    todo.value = '';
+    this.reset();
   } else {
     alert("You forgot to type a ToDo!");
   }
@@ -27,7 +27,10 @@ function handleCompleteOrDelete(e) {
 }
 
 function handleClearAll(e) {
-  document.getElementById('todo-list').innerHTML = '';
+  let ol = document.getElementById('todo-list');
+  while (ol.firstChild) {
+    ol.removeChild(ol.firstChild);
+  }
 }
 
 // HELPER FUNCTIONS
