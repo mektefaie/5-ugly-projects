@@ -1,5 +1,6 @@
 // EVENT LISTENERS
 document.getElementById('expense-details').addEventListener('submit', handleExpense);
+document.getElementById('expense-list').addEventListener('click', handleDelete);
 
 // EVENT HANDLERS
 function handleExpense(e) {
@@ -15,6 +16,12 @@ function handleExpense(e) {
   }
 }
 
+function handleDelete(e) {
+  if (e.target.name === "deleteExpense") {
+    deleteExpense(e);
+  }
+}
+
 // HELPER FUNCTIONS
 function addExpense(name, date, amount) {
   const emptyList = document.getElementById('empty-list');
@@ -27,14 +34,17 @@ function addExpense(name, date, amount) {
       <td>${name}</td>
       <td>${date}</td>
       <td>${amountInDollar}</td>
-      <td><button name='delete'>Delete</button></td>
+      <td><button name='deleteExpense'>Delete</button></td>
     </tr>
   `;
 
-  console.log(emptyList.parentNode.nodeName);
   emptyList.remove();
   tbody.appendChild(tr);
+}
 
+function deleteExpense(e) {
+  const task = e.target.parentNode.parentNode;
+  task.remove();
 }
 
 function currencyValue(expenseAmount) {
